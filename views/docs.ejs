@@ -1,0 +1,1730 @@
+
+<div id="loader-wrapper">
+	<div id="loader"></div>
+	<div class="loader-section section-left"></div>
+	<div class="loader-section section-right"></div>
+</div>
+<div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
+	<!-- Mobile Version -->
+	<!-- Backdrop -->
+	<div x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150"
+		x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+		x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100"
+		x-transition:leave-end="opacity-0"
+		class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"></div>
+	<aside class="fixed inset-y-0 z-20 flex-shrink-0 w-64 mt-16 overflow-y-auto bg-white dark:bg-gray-800 md:hidden"
+		x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150"
+		x-transition:enter-start="opacity-0 transform -translate-x-20" x-transition:enter-end="opacity-100"
+		x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100"
+		x-transition:leave-end="opacity-0 transform -translate-x-20" @click.away="closeSideMenu"
+		@keydown.escape="closeSideMenu">
+		<div class="py-4 text-center text-gray-500 dark:text-gray-400">
+			<a class="ml-6 text-lg text-center font-bold text-gray-800 dark:text-gray-200" href="/docs"> Amir API
+			</a>
+			<ul class="mt-6">
+				<li class="relative px-6 py-3">
+					<span class="absolute inset-y-0 left-0 w-1 bg-red-600 rounded-tr-lg rounded-br-lg"
+						aria-hidden="true"></span>
+					<a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+						href="/docs">
+						<i class="fa-solid fa-house-crack"></i>
+						<span class="ml-4"> Dashboard</span>
+					</a>
+				</li>
+        <hr class="my-5">
+			<ul>
+	<!-- Ephoto360 menu-->
+				<li class="relative px-6 py-3">
+					<button style="outline:transparent"
+						class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+						@click="togglePagesEphoto" aria-haspopup="true">
+						<span class="inline-flex items-center">
+							<i class="fa-brands fa-etsy"></i>
+							<span class="ml-4"> Ephoto360 </span>
+						</span>
+						<i class="fa-solid fa-chevron-down"></i>
+					</button>
+					<template x-if="isPagesEphotoOpen">
+						<ul x-transition:enter="transition-all ease-in-out duration-300"
+							x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
+							x-transition:leave="transition-all ease-in-out duration-300"
+							x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
+							class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
+							aria-label="submenu">
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/wood?text=Amir&text2=api"> 3D Wood </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/television?text=Amir"> Television Vintage
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/glasses?text=Amir"> Glasses </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/blackpink?text=Amir"> Black Pink </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/neonbp?text=Amir"> Neon Black Pink </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/coverpubg?text=Amir API"> Cover PUBG </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/juventus?text=Amir&number=7"> Juventus
+									T-shirt </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/greenbrush?text=Amir"> Green Brush </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/quotestatus?text=Amir&text2=Your Quotes">
+									Quoted Status </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/neonblue?text=Amir"> Consert Neon Blue
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/eraser?text=Amir"> Eraser Text </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/dragonfire?text=Amir"> Dragon Fire </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/incandescent?text=Amir"> Incandescent
+									Blubs </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/typography?text=Amir"> Typography Dark
+									Green </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/letters?text=Amir"> Letters Leavers </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/cloth?text=Amir"> On Cloth </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/graffiti?text=Amir"> Graffiti 3D </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/metals?text=Amir"> Metal Stars </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/typography2?text=Amir"> Make Typography 2
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/nightstars?text=Amir"> Night stars </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/cloud?text=Amir"> Cloud Text </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/caper?text=Amir"> Caper Cut </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/horror?text=Amir"> Create horror </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/sunlight?text=Amir"> Sun Light </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/cake?text=Amir"> Birthday Cake </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/pig?text=Amir"> Cute Pig
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/hallowen?text=Amir"> Hallowen </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/leafgraphy?text=Amir"> Leaf Typography
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/water?text=Amir"> Water </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/writestatus?text=Amir&text2=Your Quotes In Here">
+									Write Status </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/scholes?text=Amir&number=7"> Paul Scholes
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/heated?text=Amir&text2=rest api"> Heated
+									Steel </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/buoys?text=Amir&text2=Your Quotes"> Buoys
+									On Life </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/crank?text=Amir"> Exam Crank Animate </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/puppy?text=Amir"> Puppy </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/pubgavatar?text=Amir"> PUBG Avatar </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/foggy?text=Amir"> foggy </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/tiger?text=Amir"> Tiger Logo Video </a>
+							</li>
+							
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/american?text=Amir"> American Flag </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/pencil?text=Amir&text2=Farebiiw"> Pencil
+									Sketch Logo </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/arrow?text=Amir"> Arrow Tatto </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/arrow2?text=Amir"> Arrow Tatto 2 </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/anonymous?text=Amir"> Anonymous Hacker </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/aov?text=Amir"> AOV Hero </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/ml?text=Amir"> Mobile Legend Hero </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/warface?text=Amir"> Warface Cover </a>
+							</li>
+              		<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/nightstars?text=Amir"> Night Stars </a>
+                                                               </li>
+                            		<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/caper?text=Amir"> Caper </a>
+  </li>
+                            		<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/1?text=Amir"> WaterColor </a>
+                                </li>
+                            		<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/2?text=Amir"> Purple Gold </a>
+                                </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/3?text=Amir"> Sand Online </a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/4?text=Amir"> Paper Cut </a>
+              </li>
+            
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/5?text=Amir"> Wooden </a>
+              </li>
+            
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/6?text=Amir"> Chocolate Text </a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/7?text=Amir"> Retro </a>
+              </li>
+          
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/8?text=Amir">  Modren Gold </a>
+              </li>
+              
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/9?text=Amir"> Febric </a>
+              </li>
+              
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/10?text=Amir">  Metal 3D </a>
+              </li>
+            
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/11?text=Amir"> Jewel  </a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/12?text=Amir">  Gold TexT </a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/13?text=Amir">  Diamond TexT </a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/14?text=Amir">  Chrome TexT </a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/15?text=Amir">  3D EffecT </a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/16?text=Amir">  Angel WinGs </a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/17?text=Amir">  Galaxy StyLe </a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/18?text=Amir">  3D Crack </a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/19?text=Amir"> MeTalic TexT  </a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/20?text=Amir">  BirThday Ballon </a>
+              </li>
+                            <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/21?text=Amir"> DeviL Wings </a>
+              </li>
+              		              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/22?text=Amir"> Galaxy 2 </a>
+              </li>
+              	              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/23?text=Amir"> Gilter GoLd </a>
+              </li>
+              	              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/24?text=Amir"> Light Neon </a>
+              </li>
+              	              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/25?text=Amir"> RoyaL TexT </a>
+              </li>
+              	              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/26?text=Amir"> ChaLk Blackboard </a>
+              </li>
+                            <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/27?text=Amir"> WaTer Effect </a>
+              </li>
+              	
+              		<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/ephoto/cloud?text=Amir"> Cloud </a>
+                    
+                  </li>
+						</ul>
+					</template>
+				</li>
+        	<!-- Searching menu-->
+				<li class="relative px-6 py-3">
+					<button style="outline:transparent"
+						class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+						@click="togglePagesSearching" aria-haspopup="true">
+						<span class="inline-flex items-center">
+							<i class="fa-solid fa-magnifying-glass-plus"></i>
+							<span class="ml-4"> Searching </span>
+						</span>
+						<i class="fa-solid fa-chevron-down"></i>
+					</button>
+					<template x-if="isPagesSearchingOpen">
+						<ul x-transition:enter="transition-all ease-in-out duration-300"
+							x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
+							x-transition:leave="transition-all ease-in-out duration-300"
+							x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
+							class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
+							aria-label="submenu">
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/sfile?query=whatsapp"> Search sfile.mobi
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/apkmirror?query=whatsapp"> Search APK Mirror
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/nekopoi?query=loli"> Search Nekopoi
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/nhentai?query=shindol"> Search Nhentai
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/recipes?query=rendang">
+									Recipes Search </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/detectsong?url=https://google.com/storage/audio.mp3">
+									Detect/Reverse Song </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/tiktok?query=chikakiku"> Tiktok Search With
+									Username </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/tiktokhashtag?query=pargoy"> Tiktok Search
+									With Hashtag </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/youtube?query=Monolog-pamungkas"> Youtube
+									search </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/bokephub?query=tante"> Bokep HUB </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/pornhub?query=moms"> Pornhub Search </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/xnxx?query=moms"> XNXX </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/xvideos?query=moms"> Xvideos </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/cersex?query=ibu tiri"> Cersex </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/sticker?query=pentol"> Sticker </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/groupwa?query=bot"> Group WA </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/wattpad?query=bucin"> Search Wattpad </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/bacawp?url=https://www.wattpad.com/699514963-bucin-satu/">
+									Reading Wattpad </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/storywp?url=https://www.wattpad.com/story/179689186-bucin/">
+									Story Wattpad </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/brainly?query=Sejarah indonesia"> Brainly
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/googleplay?query=whatsapp"> Google Play </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/dorking?query=intitle:'hello world' intext:2021">
+									Google Dorking </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/image?query=kayes onic"> Google Image </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/image2?query=kayes onic"> Google Image V2
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/reverseimg?url=https://telegra.ph/file/dec30559fdc855288237d.jpg">
+									Reverse Image Google </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/wikipedia?query=kopi"> Wikipedia ID </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/pinterest?query=kayess onic"> Pinterest </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/liriklagu?query=Monolog pamungkas"> Lirik
+									Lagu </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/search/chordlagu?query=Monolog pamungkas"> Chord
+									Lagu </a>
+							</li>
+						</ul>
+					</template>
+				</li>
+        <!-- Textpro menu-->
+				<li class="relative px-6 py-3">
+					<button style="outline:transparent"
+						class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+						@click="togglePagesTextpro" aria-haspopup="true">
+						<span class="inline-flex items-center">
+							<i class="fa-solid fa-trademark"></i>
+							<span class="ml-4"> Textpro me</span>
+						</span>
+						<i class="fa-solid fa-chevron-down"></i>
+					</button>
+					<template x-if="isPagesTextproOpen">
+						<ul x-transition:enter="transition-all ease-in-out duration-300"
+							x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
+							x-transition:leave="transition-all ease-in-out duration-300"
+							x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
+							class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
+							aria-label="submenu">
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/layered?text=Amir&text2=Gans"> Layered
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/paper?text=Amir"> ➥ paper text
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/pornhub?text=Amir&text2=hub"> pornhub </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/harrypotter?text=Amir"> ➥
+									harry potter </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/embossed?text=Amir"> ➥
+									embossed </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/broken?text=Amir"> ➥ broken
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/blackpink?text=Amir"> ➥ black
+									pink </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/carbon?text=Amir"> ➥ carbon
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/gradient?text=Amir"> ➥
+									gradient </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/glue?text=Amir"> ➥ glue </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/neon?text=Amir"> ➥ neon </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/blood?text=Amir"> ➥ blood </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/firework?text=Amir"> ➥
+									firework </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/dropwater?text=Amir"> ➥
+									dropwater </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/imglitch?text=Amir"> ➥ im
+									glitch </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/aglitch?text=Amir&text2=Rest Api"> a
+									glitch </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/glossy?text=Amir"> ➥ glossy
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/bear?text=Amir"> ➥ bear </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/devil?text=Amir"> ➥ devil </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/christmas?text=Amir"> ➥
+									christmas </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/magma?text=Amir"> ➥ magma </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/stone?text=Amir"> ➥ stone </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/light?text=Amir"> ➥ light </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/berry?text=Amir"> ➥ berry </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/transformer?text=Amir"> ➥
+									transformer </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/fiction?text=Amir"> ➥ fiction
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/videogame?text=Amir"> ➥ video
+									game </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/greenhorror?text=Amir"> ➥
+									green horror </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/captainamerica?text=Amir&text2=FXC7%20API">
+									Captain america
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/metallic?text=Amir"> ➥
+									Metallic </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/discovery?text=Amir"> ➥
+									Discovery </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/circuit?text=Amir"> ➥ Circuit
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/sketch?text=Amir"> ➥ Sketch
+									Pencil </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/choror?text=Amir&text2=Fxc7"> Cinematic
+									Horor </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/spooky?text=Amir&text2=Fxc7"> Spooky
+									Hallowen </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/skeleton?text=Amir"> ➥
+									Skeleton Horor </a>
+							</li>
+              	<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/1?text=CHAND">1 ➱ glowing metal</a>
+              </li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/2?text=CHAND ">2 ➱ chrome text
+								</a>
+							</li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/3?text=CHAND ">3 ➱ black metal
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/4?text=CHAND ">4 ➱ blue text
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/5?text=CHAND ">5 ➱ blue metal
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/6?text=CHAND ">6 ➱ hot metal
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/7?text=CHAND ">7 ➱ carbon text
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/8?text=CHAND ">8 ➱ yellow metal
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/9?text=CHAND ">9 ➱ golden text
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/10?text=CHAND "> 10 ➱ blue jewelry
+								</a>
+              </li>
+             <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/11?text=CHAND "> 11 ➱ cyan jewelry
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/12?text=CHAND "> 12 ➱ green jewelry
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/13?text=CHAND "> 13 ➱ orange jewelry
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/14?text=CHAND "> 14 ➱ purple jewelry
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/15?text=CHAND "> 15 ➱ red jewelry
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/16?text=CHAND "> 16 ➱ silver jewelry
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/17?text=CHAND "> 17 ➱ yellow jewelry
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/18?text=CHAND "> 18 ➱ shiny metal
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/19?text=CHAND "> 19 ➱ purple Gem
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/20?text=CHAND "> 20 ➱ Rainbow metal
+								</a>
+                  </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/21?text=CHAND ">21 ➱ SCI FI text
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/22?text=CHAND "> 22 ➱ wood text
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/23?text=CHAND ">23 ➱ bagal text
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/24?text=CHAND "> 24 ➱ biscuit text
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/25?text=CHAND "> 25 ➱ Abstra Gold
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/26?text=CHAND "> 26 ➱ Rusty metal
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/27?text=CHAND ">27 ➱ fruit juice
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/28?text=CHAND "> 28 ➱ Ice Cold
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/29?text=CHAND "> 29 ➱ marble metal
+								</a>
+              </li>
+              <li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/textpro/30?text=CHAND "> 30 ➱ slabs  marble
+								</a>
+              </li>
+						</ul>
+					</template>
+  </li>
+        <li class="relative px-6 py-3">
+					<button style="outline:transparent"
+						class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+						@click="togglePagesMenu" aria-haspopup="true">
+						<span class="inline-flex items-center">
+							<i class="fa-solid fa-download"></i>
+							<span class="ml-4"> Downloader </span>
+						</span>
+						<i class="fa-solid fa-chevron-down"></i>
+					</button>
+					<template x-if="isPagesMenuOpen">
+						<ul x-transition:enter="transition-all ease-in-out duration-300"
+							x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
+							x-transition:leave="transition-all ease-in-out duration-300"
+							x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
+							class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
+							aria-label="submenu">
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/ytshort?url=https://youtube.com/shorts/Yes5Ga92OIU?feature=share">
+									Youtube Short </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/ytmp3?url=https://youtu.be/Nq5rzeJ5Ab4">
+									YTMP3 Downloader
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/ytmp3?url=https://youtu.be/Nq5rzeJ5Ab4">
+									YTMP4 Downloader
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/playmp3?query=monolog%20pamungkas"> YT PLAY
+									MP3 </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/playmp4?query=monolog%20pamungkas"> YT PLAY
+									MP4 </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/joox?query=monolog%20pamungkas"> JOOX </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/fb?url=https://www.facebook.com/alanwalkermusic/videos/277641643524720">
+									Facebook Downloader </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/fb2?url=https://www.facebook.com/alanwalkermusic/videos/277641643524720">
+									Facebook Downloader (2) </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/ig?url=https://www.instagram.com/p/CNtpwxuH5NK/?igshid=g26k5coikzwr">
+									Instagram Downloader </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/igtv?url=https://www.instagram.com/tv/CSW1PMohXDm/?utm_medium=copy_link">
+									IGTV Downloader </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/igstories?url=https://instagram.com/stories/officialpersebaya/2787913152184277704?utm_source=ig_story_item_share&utm_medium=share_sheet">
+									Ig Stories
+									Downloader </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/igstory?username=iamdorasnow"> Ig Story
+									Downloader </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/tiktok?url=https://vt.tiktok.com/ZSd8d6PDx/">
+									Tiktok
+									Downloader </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/tiktok2?url=https://vt.tiktok.com/ZSd8d6PDx/">
+									TT
+									Downloader </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/tiktok3?url=https://vt.tiktok.com/ZSd8d6PDx/">
+									Musically
+									Downloader </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/tiktok4?url=https://vt.tiktok.com/ZSd8d6PDx/">
+									Snaptik
+									Downloader </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/tiktok5?url=https://vt.tiktok.com/ZSd8d6PDx/">
+									Savetik
+									Downloader </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/soundcloud?url=https://m.soundcloud.com/licooys/pamungkas-monolog">
+									Sound Cloud Downloader </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/ifunny?url=https://ifunny.co/video/cf-tiktok-hi-lemoine-Ye4Uu0729?s=cl">
+									Ifunny Downloader </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/imdb?url=https://m.imdb.com/video/vi3698310169?playlistId=tt6806448&ref_=tt_ov_vi">
+									IMDB Downloader </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/twitter?url=https://twitter.com/cumcontrolfun/status/1394911778249723904?t=UGSdldJTFPr7G9k6gM2zpQ&s=19">
+									Twitter Downloader </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/cocofun?url=https://www.icocofun.com/share/post/qUc04yiC8WapxKtUXRy9dg==?lang=id&pkg=id&share_to=copy_link&m=23d0cac4747cc62954b3b1ed94697669&d=387544412ee2b99fddea8cb15c30fdd15b79f282b6c54a2aac6ca62db597c140&nt=1">
+									Cocofun Downloader </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/linesticker?url=https://store.line.me/stickershop/product/12489506/id">
+									Sticker Line Downloader </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/pinterest?url=https://id.pinterest.com/pin/881790802010631188/">
+									Pinterest Downloader </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/xvideos?url=https://www.xvideos.com/video45738459/pervymother.com_-_mom_and_sister_threeway_fantasy">
+									XVideos Downloader </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/xnxx?url=https://www.xnxx.com/video-kmyob38/hot_milf_step_mom_huge_boobs_brunette_ryder_skye_sex_with_stepson_pov">
+									XNXX Downloader </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/gore?url=https://deepgoretube.site/a-big-one/">
+									Gore Video Downloader </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a target="_blank" class="w-full"
+									href="/api/download/sfile?url=https://sfile.mobi/ZfKRrcuFSo7">
+									sfile.mobi Downloader </a>
+							</li>
+						</ul>
+					</template>
+  </li>
+        <!-- Photooxy menu-->
+				<li class="relative px-6 py-3">
+					<button style="outline:transparent"
+						class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+						@click="togglePagesPhotooxy" aria-haspopup="true">
+						<span class="inline-flex items-center">
+							<i class="fa-solid fa-paragraph"></i>
+							<span class="ml-4"> Photooxy </span>
+						</span>
+						<i class="fa-solid fa-chevron-down"></i>
+					</button>
+					<template x-if="isPagesPhotooxyOpen">
+						<ul x-transition:enter="transition-all ease-in-out duration-300"
+							x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
+							x-transition:leave="transition-all ease-in-out duration-300"
+							x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
+							class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
+							aria-label="submenu">
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/toilet?url=https://telegra.ph/file/dec30559fdc855288237d.jpg">
+									Photo Toilet </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/place?url=https://telegra.ph/file/dec30559fdc855288237d.jpg">
+									Place Photo Notes </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/burning?url=https://telegra.ph/file/dec30559fdc855288237d.jpg">
+									Burn On Hands </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/shattered?url=https://telegra.ph/file/dec30559fdc855288237d.jpg">
+									Broken Card </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/mirrors?url=https://telegra.ph/file/dec30559fdc855288237d.jpg">
+									Broken Mirrors </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/anaglyph?url=https://telegra.ph/file/dec30559fdc855288237d.jpg">
+									3D anaglyph </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/iphone?url=https://telegra.ph/file/dec30559fdc855288237d.jpg">
+									Iphone Wallpaper </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/flame?url=https://telegra.ph/file/dec30559fdc855288237d.jpg">
+									Flame Paper </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/frame?url=https://telegra.ph/file/dec30559fdc855288237d.jpg">
+									Loving Memory </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/memory?url=https://telegra.ph/file/dec30559fdc855288237d.jpg">
+									Memory Photo Frame </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/nature?url=https://telegra.ph/file/dec30559fdc855288237d.jpg">
+									Frame In Nature </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/ripped?url=https://telegra.ph/file/dec30559fdc855288237d.jpg">
+									Ripped Torn Paper </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/tearing?url=https://telegra.ph/file/dec30559fdc855288237d.jpg">
+									Paper Tearing </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/exposure?url=https://telegra.ph/file/dec30559fdc855288237d.jpg">
+									Double Exposure </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/coffee?text=Amir"> ➥ Coffee Cup </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/quotewood?text=Amir"> ➥ Quote Wood </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/flaming?text=Amir"> ➥ Flaming Text </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/oceansea?text=Amir"> ➥ ocean sea </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/pubg?text=Amir&text2=Gans"> pubg </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/shadow?text=Amir"> ➥ shadow </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/rainbow?text=Amir"> ➥ rainbow </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/gravity?text=Amir"> ➥ gravity </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/burnpaper?text=Amir"> ➥ burn paper </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/smoke?text=Amir"> ➥ smoke </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/romantic?text=Amir"> ➥ romantic </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/naruto?text=Amir"> ➥ naruto </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/lovemessage?text=Amir"> ➥ love message </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/grass?text=Amir"> ➥ message under grass
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/glitch?text=Amir&text2=Rest Api"> glitch
+								</a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/doubleheart?text=Amir"> ➥ double heart </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/coffecup?text=Amir"> ➥ coffe Cup </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/lovetext?text=Amir"> ➥ love Text </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/butterfly?text=Amir"> ➥ butterfly </a>
+							</li>
+							<li
+								class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+								<a class="w-full" target="_blank"
+									href="/api/photooxy/slidetext?text=Amir Gans"> slide text
+								</a>
+							</li>
+						</ul>
+					</template>
+				</li>
+				<hr color="green">
+			</ul>
+	</aside>
+	<div class="flex flex-col flex-1 w-full">
+		<header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
+			<div class="container flex items-center justify-between h-full px-6 mx-auto text-red-600 dark:text-red-300">
+				<!-- Mobile hamburger -->
+				<button class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-red"
+					@click="toggleSideMenu" aria-label="Menu">
+					<i class="fa-solid fa-bars-staggered"></i>
+				</button>
+				<!-- Search input -->
+				<div class="flex justify-center flex-1 lg:mr-32">
+					<div class="relative w-full max-w-xl mr-6 focus-within:text-red-500">
+						<div class="absolute inset-y-0 flex items-center pl-2">
+							<i class="fa-solid fa-magnifying-glass"></i>
+						</div>
+						<input
+							class="w-full pl-8 pr-2 text-sm text-center text-gray-700 placeholder-red-600 bg-red-100 border-0 rounded-md dark:placeholder-red-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-red-300 focus:outline-none focus:shadow-outline-red form-input"
+							type="text" placeholder="Searching......." aria-label="Search" />
+					</div>
+				</div>
+				<ul class="flex items-center flex-shrink-0 space-x-6">
+					<!-- Theme toggler -->
+					<li class="flex">
+						<button class="rounded-md focus:outline-none focus:shadow-outline-red" @click="toggleTheme"
+							aria-label="Toggle color mode">
+							<template x-if="!dark">
+								<svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+									<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+								</svg>
+							</template>
+							<template x-if="dark">
+								<svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd"
+										d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+										clip-rule="evenodd"></path>
+								</svg>
+							</template>
+						</button>
+					</li>
+					<!-- Profile menu -->
+					<li class="relative">
+						<button class="align-middle rounded-full focus:shadow-outline-red focus:outline-none"
+							@click="toggleProfileMenu" @keydown.escape="closeProfileMenu" aria-label="Account"
+							aria-haspopup="true">
+							<img class="object-cover w-8 h-8 rounded-full" src="
+					
+					<%= profile %>" alt="" aria-hidden="true" />
+						</button>
+						<template x-if="isProfileMenuOpen">
+							<ul x-transition:leave="transition ease-in duration-150"
+								x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+								@click.away="closeProfileMenu" @keydown.escape="closeProfileMenu"
+								class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700"
+								aria-label="submenu">
+								<% if (user) { %>
+								<li class="flex">
+									<a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+										href="/users/profile">
+										<i class="w-4 h-4 mr-3 fa-solid fa-user-gear"></i>
+										<span> Profile</span>
+									</a>
+								</li>
+								<li class="flex">
+									<a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+										href="/users/settings">
+										<i class="w-4 h-4 mr-3 fa-solid fa-gears"></i>
+										<span> Settings</span>
+									</a>
+								</li>
+								<li class="flex">
+									<a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+										href="/users/logout">
+										<i class="w-4 h-4 mr-3 fa-solid fa-right-from-bracket"></i>
+										<span> Log out</span>
+									</a>
+								</li>
+								<% } else { %>
+								<li class="flex">
+									<a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+										href="/users/login">
+										<i class="w-4 h-4 mr-3 fa-solid fa-right-to-bracket"></i>
+										<span> Login</span>
+									</a>
+								</li>
+								<li class="flex">
+									<a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+										href="/users/register">
+										<i class="w-4 h-4 mr-3 fa-solid fa-registered"></i>
+										<span> Registered</span>
+									</a>
+								</li>
+								<li class="flex">
+									<a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+										href="/users/forgotpassword">
+										<i class="w-4 h-4 mr-3 fa-brands fa-keycdn"></i>
+										<span> Forgot Password</span>
+									</a>
+								</li>
+								<% } %> 
+								
+							</ul>
+						</template>
+					</li>
+				</ul>
+			</div>
+		</header>
+		<main class="h-full overflow-y-auto">
+			<div class="container px-6 mx-auto grid">
+				<center>
+					<img class="my-6" width="350px"
+						src="http://readme-typing-svg.herokuapp.com?font=Caveat&pause=1000&color=FF0000&width=235&lines=    ++++Farebii'w+Amir+Here;    ++++Rest+Api+By+Mr+Amir;    ++++All+Features+are+Working;    If+Any+Bug+Contact+Me;++++Whatsapp+923477034310">
+				</center>
+				<!-- Cards -->
+				<div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
+					
+					<!-- Card -->
+					<div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+						<div
+							class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
+							<i class="fa-solid fa-eye-low-vision"></i>
+						</div>
+						<div>
+							<p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"> Visitors </p>
+							<p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+								<span id="visitor"></span> Visit
+							</p>
+						</div>
+					</div>
+					<!-- Card -->
+					
+					<!-- Card -->
+					<div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+						<div
+							class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
+							<i class="fa-solid fa-globe"></i>
+						</div>
+						<div>
+							<p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"> Your IP Address </p>
+							<p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+								<span id="ip"></span>
+							</p>
+						</div>
+					</div>
+					<!-- Card -->
+					<div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+						<div
+							class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-blue-500">
+							<i class="fa-solid fa-battery-full"></i>
+						</div>
+						<div><% if (/(Android|\?1)/.test(androUser)) { %>
+							<p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"> Your Battery </p>
+							<p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+								<span id="batteryLevel"></span>
+								<span id="percentageLevel">100%</span>
+								<span color="red" id="isCharge"></span>
+							</p><% } else { %>
+							<p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"> Your Battery
+							</p>
+							<p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+								Only Android Users
+							</p>
+						<% } %></div>
+					</div>
+					<!-- Card -->
+					<div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+						<div class="p-3 mr-4 text-red-500 bg-red-100 rounded-full dark:text-red-100 dark:bg-orange-500">
+							<i class="fa-solid fa-clock"></i>
+						</div>
+						<div>
+							<p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"> Clock </p>
+							<p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+								<span id="Clock"></span>, <span id="Ucapan"></span>
+							</p>
+						</div>
+					</div>
+					<!-- Card -->
+					<div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+						<div
+							class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
+							<i class="fa-solid fa-hands-praying"></i>
+						</div>
+						<div>
+							<p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"> Your Providers </p>
+							<p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+								<span id="card"></span>
+							</p>
+						</div>
+					</div>
+					<!-- Card -->
+					<div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+						<div
+							class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
+							<i class="fa-regular fa-calendar-days"></i>
+						</div>
+						<div>
+							<p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"> Date </p>
+							<p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+								<span id="tanggal"></span>
+							</p>
+						</div>
+					</div>
+					<!-- Card -->
+					<div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+						<div
+							class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500">
+							<i class="fa-solid fa-stopwatch"></i>
+						</div>
+						<div>
+							<p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"> Enjoy Rest Api
+							</p>
+							<p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+								<span id=""></span>
+							</p>
+						</div>
+					</div>
+				</div>
+				<!-- Cek Apikey -->
+				<div class="grid gap-6 mb-8">
+					<div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+					<form action="/api/cekkey?apikey= apikey %"
+						<label class="block text-sm text-center">
+							<p class="status font-bold text-gray-700 dark:text-gray-400"> Check Your Apikey <i
+									class="fa-brands fa-keycdn"></i>
+							</p>
+							<br>
+							<hr class="mb-8">
+							<input type="text" id="input-apikey"
+								class="text-center block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-red-400 focus:outline-none focus:shadow-outline-red dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+								placeholder="<%= typeof apikey == " APIKEY" ? 'Input Your Apikey' : apikey %>" required>
+						</label>
+						<button id="submit-apikey"
+							class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red"
+							type="submit" onclick="execute()"> Submit</button>
+					</div>
+					<!-- Cover base -->
+					<div class="grid gap-6 mb-8">
+						<div class="min-w-0 p-4 bg-white justify-center rounded-lg shadow-xs dark:bg-gray-800">
+							<center>
+								<img aria-hidden="true" class="hidden rounded-md object-cover w-full h-full dark:block"
+									src="images/docs-dark.png">
+								<img aria-hidden="true"
+									class="object-cover rounded-md object-cover w-full h-full dark:hidden"
+									src="images/docs-light.png">
+							</center>
+							<div class="flex justify-center mt-4 space-x-3 text-sm text-gray-600 dark:text-red-400">
+								<!-- Team -->
+								<div class="flex items-center">
+									<span class="inline-block w-3 h-3 mr-1 bg-teal-600 rounded-md"></span>
+									<span> Farebiiw Amir HeRe</span>&nbsp; <span
+										class="inline-block w-3 h-3 mr-1 bg-blue-500 rounded-md"></span>
+								</div>
+							</div>
+							<hr class="my-6">
+							<p class="text-sm text-center text-gray-600 font-bold dark:text-red-400">
+								<span class="underline"> • ANNOUNCEMENT • </span>
+							</p>
+							<br>
+							<span class="text-sm text-gray-600 font-semibold dark:text-green">• Please use the rest api as wisely as possible, don't imitate or copy website templates
+								. <br>• If there is a bug, please report it immediately.<br>•
+								Thank You attention. </span>
+						</div>
+						<footer>
+							<div class="grid gap-6 mb-10">
+								<div class="min-w-0 p-4 bg-red rounded-lg shadow-xs dark:bg-gray-800">
+									<p class="text-center text-sm text-gray-600 font-bold dark:text-red-400"> Powered
+										By <a href="https://www.facebook.com/F4R3BII.Amir">Amir</a> <span class="text-red-600"
+											id="years"></span>
+									</p>
+								</div>
+							</div>
+						</footer>
+					</div>
+				</div>
+		</main>
+	</div>
+</div>
